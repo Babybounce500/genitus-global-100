@@ -1,0 +1,1111 @@
+<title>Global 100 Archiv</title>
+<style>
+:root{
+  --bg:#080c10; --surface:#0d1117; --surface2:#121a22; --border:#1e2d3d;
+  --accent:#00d4ff; --gold:#f0c040; --green:#00ff88; --red:#ff3b5c;
+  --muted:#7d92a8; --text:#c8d8e8; --bright:#ffffff;
+  --mono:'Space Mono',monospace; --serif:'Source Serif 4',Georgia,serif; --sans:'Rajdhani',sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ --bg:#f4f7fb; --surface:#ffffff; --surface2:#eef2f7; --border:#d9e2ec; --accent:#0e7490; --gold:#b45309; --green:#15803d; --red:#b91c1c; --muted:#52606d; --text:#1e293b; --bright:#0f172a; color-scheme: light; } }
+:root[data-theme="light"]{ --bg:#f4f7fb; --surface:#ffffff; --surface2:#eef2f7; --border:#d9e2ec; --accent:#0e7490; --gold:#b45309; --green:#15803d; --red:#b91c1c; --muted:#52606d; --text:#1e293b; --bright:#0f172a; color-scheme: light; }
+*{box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);margin:0;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px 60px;}
+header.hero{padding:56px 20px 34px;max-width:1280px;margin:0 auto;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,6vw,56px);color:var(--bright);margin:0 0 14px;text-wrap:balance;}
+.lede{font-size:17px;max-width:680px;color:var(--text);margin:0 0 22px;}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.hstat .v{font-family:var(--mono);font-size:28px;color:var(--bright);}
+.hstat .l{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.controls{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);padding:16px 20px;border-bottom:1px solid var(--border);max-width:1280px;margin:0 auto;}
+.searchrow{display:flex;gap:10px;margin-bottom:10px;}
+#search{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-family:var(--sans);font-size:15px;outline:none;}
+#search:focus{border-color:var(--accent);}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;align-items:center;padding:0 6px;white-space:nowrap;}
+.chips{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{font-family:var(--mono);font-size:11px;padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;white-space:nowrap;}
+.chip.active{color:var(--accent);border-color:var(--accent);background:var(--surface2);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:24px;}
+.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;color:var(--text);transition:border-color .15s, transform .15s;}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.tkr{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.5px;}
+.region{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.name{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--bright);margin-bottom:3px;}
+.sector{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:12px;}
+.stats{display:flex;gap:14px;border-top:1px solid var(--border);padding-top:10px;}
+.stat{display:flex;flex-direction:column;}
+.stat .v{font-family:var(--mono);font-size:15px;font-variant-numeric:tabular-nums;}
+.stat .l{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.up{color:var(--green);} .down{color:var(--red);}
+.empty{display:none;text-align:center;padding:60px 20px;color:var(--muted);font-family:var(--mono);font-size:13px;}
+footer{padding:30px 20px 60px;font-family:var(--mono);font-size:11px;color:var(--muted);max-width:1280px;margin:0 auto;}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Source+Serif+4:wght@400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<header class="hero">
+  <div class="eyebrow">GENITUS Research Archiv · Stand 2026-10-09</div>
+  <h1>Global 100</h1>
+  <p class="lede">100 international bedeutende Aktien außerhalb des S&amp;P500-Datensatzes — live aus echten Kursdaten berechnet: Fundamental-Schnellcheck, 4-Strategien-Backtest, Risiko &amp; Markov-Check, pro Unternehmen.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="v">100</div><div class="l">Unternehmen</div></div>
+    <div class="hstat"><div class="v">27</div><div class="l">Regionen</div></div>
+    <div class="hstat"><div class="v">5</div><div class="l">Jahre Datenfenster</div></div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="searchrow">
+    <input id="search" type="text" placeholder="Suche nach Name, Ticker oder Sektor…">
+    <div class="count"><span id="countNum">100</span>&nbsp;/&nbsp;100</div>
+  </div>
+  <div class="chips">
+    <button class="chip active" data-region="">Alle</button>
+    <button class="chip" data-region="Australien">Australien</button><button class="chip" data-region="Belgien">Belgien</button><button class="chip" data-region="Brasilien">Brasilien</button><button class="chip" data-region="China/Hongkong">China/Hongkong</button><button class="chip" data-region="Deutschland">Deutschland</button><button class="chip" data-region="Dänemark">Dänemark</button><button class="chip" data-region="Finnland">Finnland</button><button class="chip" data-region="Frankreich">Frankreich</button><button class="chip" data-region="Großbritannien">Großbritannien</button><button class="chip" data-region="Indien">Indien</button><button class="chip" data-region="Indonesien">Indonesien</button><button class="chip" data-region="Italien">Italien</button><button class="chip" data-region="Japan">Japan</button><button class="chip" data-region="Kanada">Kanada</button><button class="chip" data-region="Mexiko">Mexiko</button><button class="chip" data-region="Niederlande">Niederlande</button><button class="chip" data-region="Norwegen">Norwegen</button><button class="chip" data-region="Polen">Polen</button><button class="chip" data-region="Portugal">Portugal</button><button class="chip" data-region="Schweden">Schweden</button><button class="chip" data-region="Schweiz">Schweiz</button><button class="chip" data-region="Singapur">Singapur</button><button class="chip" data-region="Spanien">Spanien</button><button class="chip" data-region="Südafrika">Südafrika</button><button class="chip" data-region="Südkorea">Südkorea</button><button class="chip" data-region="Taiwan">Taiwan</button><button class="chip" data-region="Österreich">Österreich</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="grid" id="grid">
+    <a class="card" href="reports/BHP_AX.html" data-region="Australien" data-name="bhp group ltd bhp.ax bergbau">
+    <div class="card-top"><span class="tkr">BHP.AX</span><span class="region">Australien</span></div>
+    <div class="name">BHP Group Ltd</div>
+    <div class="sector">Bergbau</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+140%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-24%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">74.88</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/CBA_AX.html" data-region="Australien" data-name="commonwealth bank of australia cba.ax bank">
+    <div class="card-top"><span class="tkr">CBA.AX</span><span class="region">Australien</span></div>
+    <div class="name">Commonwealth Bank of Australia</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+75%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-19%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">72.87</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/CSL_AX.html" data-region="Australien" data-name="csl ltd csl.ax biotech/pharma">
+    <div class="card-top"><span class="tkr">CSL.AX</span><span class="region">Australien</span></div>
+    <div class="name">CSL Ltd</div>
+    <div class="sector">Biotech/Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-33%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-68%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">45.24</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NAB_AX.html" data-region="Australien" data-name="national australia bank ltd nab.ax bank">
+    <div class="card-top"><span class="tkr">NAB.AX</span><span class="region">Australien</span></div>
+    <div class="name">National Australia Bank Ltd</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+68%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-24%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">85.42</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/WES_AX.html" data-region="Australien" data-name="wesfarmers ltd wes.ax mischkonzern/einzelhandel">
+    <div class="card-top"><span class="tkr">WES.AX</span><span class="region">Australien</span></div>
+    <div class="name">Wesfarmers Ltd</div>
+    <div class="sector">Mischkonzern/Einzelhandel</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+71%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-30%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">56.88</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ABI_BR.html" data-region="Belgien" data-name="anheuser-busch inbev sa abi.br getränke">
+    <div class="card-top"><span class="tkr">ABI.BR</span><span class="region">Belgien</span></div>
+    <div class="name">Anheuser-Busch InBev SA</div>
+    <div class="sector">Getränke</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+54%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-27%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">61.58</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ITUB4_SA.html" data-region="Brasilien" data-name="itaú unibanco holding sa itub4.sa bank">
+    <div class="card-top"><span class="tkr">ITUB4.SA</span><span class="region">Brasilien</span></div>
+    <div class="name">Itaú Unibanco Holding SA</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+216%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-23%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">83.57</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/PETR4_SA.html" data-region="Brasilien" data-name="petróleo brasileiro sa (petrobras) petr4.sa energie">
+    <div class="card-top"><span class="tkr">PETR4.SA</span><span class="region">Brasilien</span></div>
+    <div class="name">Petróleo Brasileiro SA (Petrobras)</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+540%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-37%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">74.64</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/VALE3_SA.html" data-region="Brasilien" data-name="vale sa vale3.sa bergbau">
+    <div class="card-top"><span class="tkr">VALE3.SA</span><span class="region">Brasilien</span></div>
+    <div class="name">Vale SA</div>
+    <div class="sector">Bergbau</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+27%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.6</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/1299_HK.html" data-region="China/Hongkong" data-name="aia group ltd 1299.hk versicherung">
+    <div class="card-top"><span class="tkr">1299.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">AIA Group Ltd</div>
+    <div class="sector">Versicherung</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-9%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-46%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">80.74</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/9988_HK.html" data-region="China/Hongkong" data-name="alibaba group holding ltd 9988.hk e-commerce">
+    <div class="card-top"><span class="tkr">9988.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">Alibaba Group Holding Ltd</div>
+    <div class="sector">E-Commerce</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-33%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-65%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.31</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/1211_HK.html" data-region="China/Hongkong" data-name="byd company ltd 1211.hk automobil/batterien">
+    <div class="card-top"><span class="tkr">1211.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">BYD Company Ltd</div>
+    <div class="sector">Automobil/Batterien</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-14%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-52%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.89</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/0939_HK.html" data-region="China/Hongkong" data-name="china construction bank corp 0939.hk bank">
+    <div class="card-top"><span class="tkr">0939.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">China Construction Bank Corp</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+157%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-25%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">81.74</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/1398_HK.html" data-region="China/Hongkong" data-name="industrial and commercial bank of china 1398.hk bank">
+    <div class="card-top"><span class="tkr">1398.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">Industrial and Commercial Bank of China</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+149%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-24%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">81.45</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/3690_HK.html" data-region="China/Hongkong" data-name="meituan 3690.hk e-commerce">
+    <div class="card-top"><span class="tkr">3690.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">Meituan</div>
+    <div class="sector">E-Commerce</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-75%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-78%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">53.23</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/2318_HK.html" data-region="China/Hongkong" data-name="ping an insurance group 2318.hk versicherung">
+    <div class="card-top"><span class="tkr">2318.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">Ping An Insurance Group</div>
+    <div class="sector">Versicherung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+21%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-51%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">65.74</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/0700_HK.html" data-region="China/Hongkong" data-name="tencent holdings ltd 0700.hk internet">
+    <div class="card-top"><span class="tkr">0700.HK</span><span class="region">China/Hongkong</span></div>
+    <div class="name">Tencent Holdings Ltd</div>
+    <div class="sector">Internet</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-3%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-59%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">78.59</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/MAERSK-B_CO.html" data-region="Dänemark" data-name="a.p. møller - mærsk a/s maersk-b.co logistik">
+    <div class="card-top"><span class="tkr">MAERSK-B.CO</span><span class="region">Dänemark</span></div>
+    <div class="name">A.P. Møller - Mærsk A/S</div>
+    <div class="sector">Logistik</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+181%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-43%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">69.83</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NOVO-B_CO.html" data-region="Dänemark" data-name="novo nordisk a/s novo-b.co pharma">
+    <div class="card-top"><span class="tkr">NOVO-B.CO</span><span class="region">Dänemark</span></div>
+    <div class="name">Novo Nordisk A/S</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-13%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-76%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">70.5</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ALV_DE.html" data-region="Deutschland" data-name="allianz se alv.de versicherung">
+    <div class="card-top"><span class="tkr">ALV.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">Allianz SE</div>
+    <div class="sector">Versicherung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+168%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">74.7</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/BAS_DE.html" data-region="Deutschland" data-name="basf se bas.de chemie">
+    <div class="card-top"><span class="tkr">BAS.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">BASF SE</div>
+    <div class="sector">Chemie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+8%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-38%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">66.81</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/BMW_DE.html" data-region="Deutschland" data-name="bmw ag bmw.de automobil">
+    <div class="card-top"><span class="tkr">BMW.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">BMW AG</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-16%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-45%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">61.53</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/DTE_DE.html" data-region="Deutschland" data-name="deutsche telekom ag dte.de telekom">
+    <div class="card-top"><span class="tkr">DTE.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">Deutsche Telekom AG</div>
+    <div class="sector">Telekom</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+76%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-25%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.1</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/MBG_DE.html" data-region="Deutschland" data-name="mercedes-benz group ag mbg.de automobil">
+    <div class="card-top"><span class="tkr">MBG.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">Mercedes-Benz Group AG</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-17%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.82</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SAP_DE.html" data-region="Deutschland" data-name="sap se sap.de software">
+    <div class="card-top"><span class="tkr">SAP.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">SAP SE</div>
+    <div class="sector">Software</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+65%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-50%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">71.31</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SIE_DE.html" data-region="Deutschland" data-name="siemens ag sie.de industrie">
+    <div class="card-top"><span class="tkr">SIE.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">Siemens AG</div>
+    <div class="sector">Industrie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+119%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.54</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/VOW3_DE.html" data-region="Deutschland" data-name="volkswagen ag vow3.de automobil">
+    <div class="card-top"><span class="tkr">VOW3.DE</span><span class="region">Deutschland</span></div>
+    <div class="name">Volkswagen AG</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-45%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-46%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">59.1</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NOKIA_HE.html" data-region="Finnland" data-name="nokia oyj nokia.he telekom-ausrüstung">
+    <div class="card-top"><span class="tkr">NOKIA.HE</span><span class="region">Finnland</span></div>
+    <div class="name">Nokia Oyj</div>
+    <div class="sector">Telekom-Ausrüstung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+105%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-44%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.55</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/AI_PA.html" data-region="Frankreich" data-name="air liquide sa ai.pa industriegase">
+    <div class="card-top"><span class="tkr">AI.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">Air Liquide SA</div>
+    <div class="sector">Industriegase</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+73%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-22%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">58.22</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/AIR_PA.html" data-region="Frankreich" data-name="airbus se air.pa luftfahrt">
+    <div class="card-top"><span class="tkr">AIR.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">Airbus SE</div>
+    <div class="sector">Luftfahrt</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+78%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.07</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/BNP_PA.html" data-region="Frankreich" data-name="bnp paribas sa bnp.pa bank">
+    <div class="card-top"><span class="tkr">BNP.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">BNP Paribas SA</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+124%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-33%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">82.36</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/KER_PA.html" data-region="Frankreich" data-name="kering sa ker.pa luxusgüter">
+    <div class="card-top"><span class="tkr">KER.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">Kering SA</div>
+    <div class="sector">Luxusgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-64%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-75%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">56.67</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/OR_PA.html" data-region="Frankreich" data-name="l'oréal or.pa konsumgüter">
+    <div class="card-top"><span class="tkr">OR.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">L'Oréal</div>
+    <div class="sector">Konsumgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+12%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-28%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.91</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/MC_PA.html" data-region="Frankreich" data-name="lvmh mc.pa luxusgüter">
+    <div class="card-top"><span class="tkr">MC.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">LVMH</div>
+    <div class="sector">Luxusgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-37%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-55%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">71.46</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SAN_PA.html" data-region="Frankreich" data-name="sanofi san.pa pharma">
+    <div class="card-top"><span class="tkr">SAN.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">Sanofi</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+6%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-29%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.21</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/TTE_PA.html" data-region="Frankreich" data-name="totalenergies se tte.pa energie">
+    <div class="card-top"><span class="tkr">TTE.PA</span><span class="region">Frankreich</span></div>
+    <div class="name">TotalEnergies SE</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+135%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">68.87</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/AZN_L.html" data-region="Großbritannien" data-name="astrazeneca plc azn.l pharma">
+    <div class="card-top"><span class="tkr">AZN.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">AstraZeneca plc</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+37%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.27</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/BP_L.html" data-region="Großbritannien" data-name="bp plc bp.l energie">
+    <div class="card-top"><span class="tkr">BP.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">BP plc</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+62%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-41%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.5</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/DGE_L.html" data-region="Großbritannien" data-name="diageo plc dge.l getränke">
+    <div class="card-top"><span class="tkr">DGE.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">Diageo plc</div>
+    <div class="sector">Getränke</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-55%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-65%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">56.59</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/GSK_L.html" data-region="Großbritannien" data-name="gsk plc gsk.l pharma">
+    <div class="card-top"><span class="tkr">GSK.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">GSK plc</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+24%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-28%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.08</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/HSBA_L.html" data-region="Großbritannien" data-name="hsbc holdings plc hsba.l bank">
+    <div class="card-top"><span class="tkr">HSBA.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">HSBC Holdings plc</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+222%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-22%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">78.69</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/RIO_L.html" data-region="Großbritannien" data-name="rio tinto plc rio.l bergbau">
+    <div class="card-top"><span class="tkr">RIO.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">Rio Tinto plc</div>
+    <div class="sector">Bergbau</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+42%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-34%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">74.99</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SHEL_L.html" data-region="Großbritannien" data-name="shell plc shel.l energie">
+    <div class="card-top"><span class="tkr">SHEL.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">Shell plc</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+114%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-22%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">70.71</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ULVR_L.html" data-region="Großbritannien" data-name="unilever plc ulvr.l konsumgüter">
+    <div class="card-top"><span class="tkr">ULVR.L</span><span class="region">Großbritannien</span></div>
+    <div class="name">Unilever plc</div>
+    <div class="sector">Konsumgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+14%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-24%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.91</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/HDFCBANK_NS.html" data-region="Indien" data-name="hdfc bank ltd hdfcbank.ns bank">
+    <div class="card-top"><span class="tkr">HDFCBANK.NS</span><span class="region">Indien</span></div>
+    <div class="name">HDFC Bank Ltd</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-10%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-30%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">79.11</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/HINDUNILVR_NS.html" data-region="Indien" data-name="hindustan unilever ltd hindunilvr.ns konsumgüter">
+    <div class="card-top"><span class="tkr">HINDUNILVR.NS</span><span class="region">Indien</span></div>
+    <div class="name">Hindustan Unilever Ltd</div>
+    <div class="sector">Konsumgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-24%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">73.56</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ICICIBANK_NS.html" data-region="Indien" data-name="icici bank ltd icicibank.ns bank">
+    <div class="card-top"><span class="tkr">ICICIBANK.NS</span><span class="region">Indien</span></div>
+    <div class="name">ICICI Bank Ltd</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+94%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-17%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">80.42</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/INFY_NS.html" data-region="Indien" data-name="infosys ltd infy.ns it-dienstleistung">
+    <div class="card-top"><span class="tkr">INFY.NS</span><span class="region">Indien</span></div>
+    <div class="name">Infosys Ltd</div>
+    <div class="sector">IT-Dienstleistung</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-32%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-48%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">82.23</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/RELIANCE_NS.html" data-region="Indien" data-name="reliance industries ltd reliance.ns mischkonzern">
+    <div class="card-top"><span class="tkr">RELIANCE.NS</span><span class="region">Indien</span></div>
+    <div class="name">Reliance Industries Ltd</div>
+    <div class="sector">Mischkonzern</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-4%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">67.98</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/TCS_NS.html" data-region="Indien" data-name="tata consultancy services ltd tcs.ns it-dienstleistung">
+    <div class="card-top"><span class="tkr">TCS.NS</span><span class="region">Indien</span></div>
+    <div class="name">Tata Consultancy Services Ltd</div>
+    <div class="sector">IT-Dienstleistung</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-31%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-51%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">81.38</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/BBCA_JK.html" data-region="Indonesien" data-name="bank central asia bbca.jk bank">
+    <div class="card-top"><span class="tkr">BBCA.JK</span><span class="region">Indonesien</span></div>
+    <div class="name">Bank Central Asia</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-7%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-49%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">83.77</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ENI_MI.html" data-region="Italien" data-name="eni spa eni.mi energie">
+    <div class="card-top"><span class="tkr">ENI.MI</span><span class="region">Italien</span></div>
+    <div class="name">Eni SpA</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+180%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-24%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.37</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/RACE_MI.html" data-region="Italien" data-name="ferrari nv race.mi automobil">
+    <div class="card-top"><span class="tkr">RACE.MI</span><span class="region">Italien</span></div>
+    <div class="name">Ferrari NV</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+88%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-43%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">74.04</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ISP_MI.html" data-region="Italien" data-name="intesa sanpaolo spa isp.mi bank">
+    <div class="card-top"><span class="tkr">ISP.MI</span><span class="region">Italien</span></div>
+    <div class="name">Intesa Sanpaolo SpA</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+264%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-40%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">81.44</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/6501_T.html" data-region="Japan" data-name="hitachi ltd 6501.t industrie">
+    <div class="card-top"><span class="tkr">6501.T</span><span class="region">Japan</span></div>
+    <div class="name">Hitachi Ltd</div>
+    <div class="sector">Industrie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+357%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-30%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.57</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/8306_T.html" data-region="Japan" data-name="mitsubishi ufj financial group 8306.t bank">
+    <div class="card-top"><span class="tkr">8306.T</span><span class="region">Japan</span></div>
+    <div class="name">Mitsubishi UFJ Financial Group</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+526%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-25%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">76.56</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/7974_T.html" data-region="Japan" data-name="nintendo co ltd 7974.t gaming">
+    <div class="card-top"><span class="tkr">7974.T</span><span class="region">Japan</span></div>
+    <div class="name">Nintendo Co Ltd</div>
+    <div class="sector">Gaming</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+78%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-53%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">61.09</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/9432_T.html" data-region="Japan" data-name="nippon telegraph and telephone corp 9432.t telekom">
+    <div class="card-top"><span class="tkr">9432.T</span><span class="region">Japan</span></div>
+    <div class="name">Nippon Telegraph and Telephone Corp</div>
+    <div class="sector">Telekom</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+61%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-21%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">56.49</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/9984_T.html" data-region="Japan" data-name="softbank group corp 9984.t investment/telekom">
+    <div class="card-top"><span class="tkr">9984.T</span><span class="region">Japan</span></div>
+    <div class="name">SoftBank Group Corp</div>
+    <div class="sector">Investment/Telekom</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+279%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-47%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">68.88</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/6758_T.html" data-region="Japan" data-name="sony group corp 6758.t elektronik/entertainment">
+    <div class="card-top"><span class="tkr">6758.T</span><span class="region">Japan</span></div>
+    <div class="name">Sony Group Corp</div>
+    <div class="sector">Elektronik/Entertainment</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+53%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">65.49</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/8035_T.html" data-region="Japan" data-name="tokyo electron ltd 8035.t halbleiterausrüstung">
+    <div class="card-top"><span class="tkr">8035.T</span><span class="region">Japan</span></div>
+    <div class="name">Tokyo Electron Ltd</div>
+    <div class="sector">Halbleiterausrüstung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+336%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-51%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">77.38</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/7203_T.html" data-region="Japan" data-name="toyota motor corp 7203.t automobil">
+    <div class="card-top"><span class="tkr">7203.T</span><span class="region">Japan</span></div>
+    <div class="name">Toyota Motor Corp</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+69%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.86</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/CNQ_TO.html" data-region="Kanada" data-name="canadian natural resources ltd cnq.to energie">
+    <div class="card-top"><span class="tkr">CNQ.TO</span><span class="region">Kanada</span></div>
+    <div class="name">Canadian Natural Resources Ltd</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+253%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-28%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">75.59</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ENB_TO.html" data-region="Kanada" data-name="enbridge inc enb.to energie-infrastruktur">
+    <div class="card-top"><span class="tkr">ENB.TO</span><span class="region">Kanada</span></div>
+    <div class="name">Enbridge Inc</div>
+    <div class="sector">Energie-Infrastruktur</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+73%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-20%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">52.42</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/RY_TO.html" data-region="Kanada" data-name="royal bank of canada ry.to bank">
+    <div class="card-top"><span class="tkr">RY.TO</span><span class="region">Kanada</span></div>
+    <div class="name">Royal Bank of Canada</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+150%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-21%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">80.5</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SHOP_TO.html" data-region="Kanada" data-name="shopify inc shop.to e-commerce-software">
+    <div class="card-top"><span class="tkr">SHOP.TO</span><span class="region">Kanada</span></div>
+    <div class="name">Shopify Inc</div>
+    <div class="sector">E-Commerce-Software</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+37%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-83%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">68.78</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/TD_TO.html" data-region="Kanada" data-name="toronto-dominion bank td.to bank">
+    <div class="card-top"><span class="tkr">TD.TO</span><span class="region">Kanada</span></div>
+    <div class="name">Toronto-Dominion Bank</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+131%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-25%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">78.52</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/AMXB_MX.html" data-region="Mexiko" data-name="américa móvil sab amxb.mx telekom">
+    <div class="card-top"><span class="tkr">AMXB.MX</span><span class="region">Mexiko</span></div>
+    <div class="name">América Móvil SAB</div>
+    <div class="sector">Telekom</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+30%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-27%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">59.33</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/WALMEX_MX.html" data-region="Mexiko" data-name="wal-mart de méxico sab walmex.mx einzelhandel">
+    <div class="card-top"><span class="tkr">WALMEX.MX</span><span class="region">Mexiko</span></div>
+    <div class="name">Wal-Mart de México SAB</div>
+    <div class="sector">Einzelhandel</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-24%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">64.89</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ADYEN_AS.html" data-region="Niederlande" data-name="adyen nv adyen.as fintech">
+    <div class="card-top"><span class="tkr">ADYEN.AS</span><span class="region">Niederlande</span></div>
+    <div class="name">Adyen NV</div>
+    <div class="sector">Fintech</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-67%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-77%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">80.32</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ASML_AS.html" data-region="Niederlande" data-name="asml holding nv asml.as halbleiter">
+    <div class="card-top"><span class="tkr">ASML.AS</span><span class="region">Niederlande</span></div>
+    <div class="name">ASML Holding NV</div>
+    <div class="sector">Halbleiter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+148%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-47%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">72</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/HEIA_AS.html" data-region="Niederlande" data-name="heineken nv heia.as getränke">
+    <div class="card-top"><span class="tkr">HEIA.AS</span><span class="region">Niederlande</span></div>
+    <div class="name">Heineken NV</div>
+    <div class="sector">Getränke</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-15%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">61.32</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/INGA_AS.html" data-region="Niederlande" data-name="ing groep nv inga.as bank">
+    <div class="card-top"><span class="tkr">INGA.AS</span><span class="region">Niederlande</span></div>
+    <div class="name">ING Groep NV</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+224%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-36%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">81.03</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/PHIA_AS.html" data-region="Niederlande" data-name="koninklijke philips nv phia.as medizintechnik">
+    <div class="card-top"><span class="tkr">PHIA.AS</span><span class="region">Niederlande</span></div>
+    <div class="name">Koninklijke Philips NV</div>
+    <div class="sector">Medizintechnik</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-31%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-69%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.26</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/EQNR_OL.html" data-region="Norwegen" data-name="equinor asa eqnr.ol energie">
+    <div class="card-top"><span class="tkr">EQNR.OL</span><span class="region">Norwegen</span></div>
+    <div class="name">Equinor ASA</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+148%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-29%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">69.86</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/OMV_VI.html" data-region="Österreich" data-name="omv ag omv.vi energie">
+    <div class="card-top"><span class="tkr">OMV.VI</span><span class="region">Österreich</span></div>
+    <div class="name">OMV AG</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+109%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-35%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">68.15</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/PKN_WA.html" data-region="Polen" data-name="pkn orlen sa pkn.wa energie">
+    <div class="card-top"><span class="tkr">PKN.WA</span><span class="region">Polen</span></div>
+    <div class="name">PKN Orlen SA</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+145%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-42%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">71.11</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/EDP_LS.html" data-region="Portugal" data-name="edp - energias de portugal sa edp.ls energie">
+    <div class="card-top"><span class="tkr">EDP.LS</span><span class="region">Portugal</span></div>
+    <div class="name">EDP - Energias de Portugal SA</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+30%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-39%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">60.09</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ERIC-B_ST.html" data-region="Schweden" data-name="telefonaktiebolaget lm ericsson eric-b.st telekom-ausrüstung">
+    <div class="card-top"><span class="tkr">ERIC-B.ST</span><span class="region">Schweden</span></div>
+    <div class="name">Telefonaktiebolaget LM Ericsson</div>
+    <div class="sector">Telekom-Ausrüstung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+10%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-54%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">72.42</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/VOLV-B_ST.html" data-region="Schweden" data-name="volvo ab volv-b.st industrie">
+    <div class="card-top"><span class="tkr">VOLV-B.ST</span><span class="region">Schweden</span></div>
+    <div class="name">Volvo AB</div>
+    <div class="sector">Industrie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+114%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.47</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ABBN_SW.html" data-region="Schweiz" data-name="abb ltd abbn.sw industrie">
+    <div class="card-top"><span class="tkr">ABBN.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">ABB Ltd</div>
+    <div class="sector">Industrie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+191%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-26%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">68.68</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NESN_SW.html" data-region="Schweiz" data-name="nestlé sa nesn.sw konsumgüter">
+    <div class="card-top"><span class="tkr">NESN.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">Nestlé SA</div>
+    <div class="sector">Konsumgüter</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-23%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-38%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">50.37</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NOVN_SW.html" data-region="Schweiz" data-name="novartis ag novn.sw pharma">
+    <div class="card-top"><span class="tkr">NOVN.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">Novartis AG</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+97%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-15%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">62.5</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/RO_SW.html" data-region="Schweiz" data-name="roche holding ag ro.sw pharma">
+    <div class="card-top"><span class="tkr">RO.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">Roche Holding AG</div>
+    <div class="sector">Pharma</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+9%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-43%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">69.49</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/UBSG_SW.html" data-region="Schweiz" data-name="ubs group ag ubsg.sw bank">
+    <div class="card-top"><span class="tkr">UBSG.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">UBS Group AG</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+195%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-29%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">73.15</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ZURN_SW.html" data-region="Schweiz" data-name="zurich insurance group ag zurn.sw versicherung">
+    <div class="card-top"><span class="tkr">ZURN.SW</span><span class="region">Schweiz</span></div>
+    <div class="name">Zurich Insurance Group AG</div>
+    <div class="sector">Versicherung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+92%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-14%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">77.28</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/D05_SI.html" data-region="Singapur" data-name="dbs group holdings ltd d05.si bank">
+    <div class="card-top"><span class="tkr">D05.SI</span><span class="region">Singapur</span></div>
+    <div class="name">DBS Group Holdings Ltd</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+251%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-19%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">77.35</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/O39_SI.html" data-region="Singapur" data-name="oversea-chinese banking corp o39.si bank">
+    <div class="card-top"><span class="tkr">O39.SI</span><span class="region">Singapur</span></div>
+    <div class="name">Oversea-Chinese Banking Corp</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+220%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-15%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">78.47</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/SAN_MC.html" data-region="Spanien" data-name="banco santander sa san.mc bank">
+    <div class="card-top"><span class="tkr">SAN.MC</span><span class="region">Spanien</span></div>
+    <div class="name">Banco Santander SA</div>
+    <div class="sector">Bank</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+331%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-30%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">78.69</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/IBE_MC.html" data-region="Spanien" data-name="iberdrola sa ibe.mc energie">
+    <div class="card-top"><span class="tkr">IBE.MC</span><span class="region">Spanien</span></div>
+    <div class="name">Iberdrola SA</div>
+    <div class="sector">Energie</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+178%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-15%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">55.69</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/ITX_MC.html" data-region="Spanien" data-name="inditex sa itx.mc einzelhandel">
+    <div class="card-top"><span class="tkr">ITX.MC</span><span class="region">Spanien</span></div>
+    <div class="name">Inditex SA</div>
+    <div class="sector">Einzelhandel</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+106%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-38%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">69.19</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/AGL_JO.html" data-region="Südafrika" data-name="anglo american plc agl.jo bergbau">
+    <div class="card-top"><span class="tkr">AGL.JO</span><span class="region">Südafrika</span></div>
+    <div class="name">Anglo American plc</div>
+    <div class="sector">Bergbau</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+58%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-49%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">53.55</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/NPN_JO.html" data-region="Südafrika" data-name="naspers ltd npn.jo internet/investment">
+    <div class="card-top"><span class="tkr">NPN.JO</span><span class="region">Südafrika</span></div>
+    <div class="name">Naspers Ltd</div>
+    <div class="sector">Internet/Investment</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+40%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-47%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">86.47</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/005380_KS.html" data-region="Südkorea" data-name="hyundai motor co 005380.ks automobil">
+    <div class="card-top"><span class="tkr">005380.KS</span><span class="region">Südkorea</span></div>
+    <div class="name">Hyundai Motor Co</div>
+    <div class="sector">Automobil</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+96%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-55%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">55.69</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/035420_KS.html" data-region="Südkorea" data-name="naver corp 035420.ks internet">
+    <div class="card-top"><span class="tkr">035420.KS</span><span class="region">Südkorea</span></div>
+    <div class="name">NAVER Corp</div>
+    <div class="sector">Internet</div>
+    <div class="stats">
+      <div class="stat"><span class="v down">-51%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-61%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">72.61</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/005930_KS.html" data-region="Südkorea" data-name="samsung electronics co ltd 005930.ks elektronik/halbleiter">
+    <div class="card-top"><span class="tkr">005930.KS</span><span class="region">Südkorea</span></div>
+    <div class="name">Samsung Electronics Co Ltd</div>
+    <div class="sector">Elektronik/Halbleiter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+303%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-39%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">93.33</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/000660_KS.html" data-region="Südkorea" data-name="sk hynix inc 000660.ks halbleiter">
+    <div class="card-top"><span class="tkr">000660.KS</span><span class="region">Südkorea</span></div>
+    <div class="name">SK Hynix Inc</div>
+    <div class="sector">Halbleiter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+1786%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-49%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">93.33</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/2317_TW.html" data-region="Taiwan" data-name="hon hai precision industry (foxconn) 2317.tw elektronikfertigung">
+    <div class="card-top"><span class="tkr">2317.TW</span><span class="region">Taiwan</span></div>
+    <div class="name">Hon Hai Precision Industry (Foxconn)</div>
+    <div class="sector">Elektronikfertigung</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+178%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-38%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">63.78</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/2454_TW.html" data-region="Taiwan" data-name="mediatek inc 2454.tw halbleiter">
+    <div class="card-top"><span class="tkr">2454.TW</span><span class="region">Taiwan</span></div>
+    <div class="name">MediaTek Inc</div>
+    <div class="sector">Halbleiter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+603%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-49%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">66.8</span><span class="l">Score</span></div>
+    </div>
+  </a>
+<a class="card" href="reports/2330_TW.html" data-region="Taiwan" data-name="taiwan semiconductor manufacturing co 2330.tw halbleiter">
+    <div class="card-top"><span class="tkr">2330.TW</span><span class="region">Taiwan</span></div>
+    <div class="name">Taiwan Semiconductor Manufacturing Co</div>
+    <div class="sector">Halbleiter</div>
+    <div class="stats">
+      <div class="stat"><span class="v up">+385%</span><span class="l">5.0J Rendite</span></div>
+      <div class="stat"><span class="v down">-43%</span><span class="l">Max DD</span></div>
+      <div class="stat"><span class="v">80</span><span class="l">Score</span></div>
+    </div>
+  </a>
+  </div>
+  <div class="empty" id="empty">Keine Treffer.</div>
+</div>
+
+<footer>GENITUS Global 100 — Kursdaten und Kennzahlen live von Yahoo Finance, Backtest-Logik 1:1 aus dem produktiven "Hätte ich gekauft"-Backtester. Keine Anlageberatung.</footer>
+
+<script>
+(function(){
+  var search = document.getElementById('search');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var countNum = document.getElementById('countNum');
+  var empty = document.getElementById('empty');
+  var grid = document.getElementById('grid');
+  var activeRegion = '';
+  function apply(){
+    var q = search.value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(c){
+      var matchesQ = !q || c.dataset.name.indexOf(q) !== -1;
+      var matchesRegion = !activeRegion || c.dataset.region === activeRegion;
+      var show = matchesQ && matchesRegion;
+      c.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    countNum.textContent = visible;
+    empty.style.display = visible === 0 ? 'block' : 'none';
+    grid.style.display = visible === 0 ? 'none' : 'grid';
+  }
+  search.addEventListener('input', apply);
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      activeRegion = chip.dataset.region;
+      apply();
+    });
+  });
+})();
+</script>
