@@ -77,7 +77,7 @@ footer a{color:var(--muted);}
   <div class="sidebar-head">Inhalt</div>
   <a href="#profil" data-ch="profil">01 · Profil</a>
   <a href="#chart" data-ch="chart">02 · Kursverlauf</a>
-  <a href="#fundamentals" data-ch="fundamentals">03 · Fundamental-Schnellcheck</a>
+  <a href="#fundamentals" data-ch="fundamentals">03 · Bilanzanalyse</a>
   <a href="#backtest" data-ch="backtest">04 · Anlagestrategien</a>
   <a href="#risk" data-ch="risk">05 · Risiko & Markov</a>
   <a href="#outlook" data-ch="outlook">06 · Einordnung</a>
@@ -91,7 +91,7 @@ footer a{color:var(--muted);}
     <div class="hstat"><div class="v">p11.998,00</div><div class="l">Letzter Kurs</div></div>
     <div class="hstat"><div class="v up">+36.6%</div><div class="l">5.0-Jahres-Gesamtrendite</div></div>
     <div class="hstat"><div class="v down">-26.3%</div><div class="l">Max Drawdown (Fenster)</div></div>
-    <div class="hstat"><div class="v">64.27/100</div><div class="l">Fundamental-Schnellcheck</div></div>
+    <div class="hstat"><div class="v">68.86/100</div><div class="l">Bilanz-Score</div></div>
   </div>
 </header>
 <section id="profil">
@@ -104,19 +104,40 @@ footer a{color:var(--muted);}
   <p class="cap">Allzeithoch im Datenfenster: p15.542,00 am 2026-02-23. Quelle: Yahoo Finance (Wochenschlusskurse, split-/dividendenbereinigt).</p>
 </section>
 <section id="fundamentals">
-  <h2>03 · Fundamental-Schnellcheck</h2>
-  <p>Leichtgewichtige 4-Faktor-Variante (Profitabilität 35%, Liquidität 20%, Verschuldung 20%, Bewertung 25%) direkt aus Yahoo-Finance-Kennzahlen — bewusst <strong>nicht</strong> identisch mit dem vollen 5-Faktor-Bilanz-Terminal-Score, da keine Jahresabschluss-Einzelposten abgerufen wurden.</p>
+  <h2>03 · Bilanzanalyse</h2>
+  <p>Volle 5-Faktor-Methodik, 1:1 aus dem produktiven GENITUS Bilanz-Terminal übernommen (Profitabilität 30%, Liquidität 15%, Verschuldung 20%, Effizienz 15%, Bewertung 20%) — auf Basis echter Jahresabschluss-Einzelposten (Gewinn- und Verlustrechnung, Bilanz, Kapitalflussrechnung), nicht nur aggregierter Kennzahlen.</p>
+  <div class="grid4">
+    <div class="card"><div class="t">Bilanz-Score gesamt</div><div class="v">68.86 / 100</div></div>
+    <div class="card"><div class="t">Profitabilität</div><div class="v">81 / 100</div></div>
+    <div class="card"><div class="t">Liquidität</div><div class="v">48 / 100</div></div>
+    <div class="card"><div class="t">Verschuldung</div><div class="v">76 / 100</div></div>
+    <div class="card"><div class="t">Effizienz</div><div class="v">66 / 100</div></div>
+    <div class="card"><div class="t">Bewertung</div><div class="v">62 / 100</div></div>
+  </div>
   <div class="tablewrap"><table>
     <tr><th>Kennzahl</th><th>Wert</th></tr>
-    <tr><td>KGV (Trailing P/E)</td><td>24.0x</td></tr>
+    <tr><td>Bruttomarge</td><td>81.9%</td></tr>
+    <tr><td>Operative Marge</td><td>22.7%</td></tr>
+    <tr><td>EBITDA-Marge</td><td>33.2%</td></tr>
+    <tr><td>Nettomarge</td><td>17.4%</td></tr>
+    <tr><td>FCF-Marge</td><td>14.8%</td></tr>
+    <tr><td>Gesamtkapitalrendite (ROA)</td><td>9.0%</td></tr>
+    <tr><td>Eigenkapitalrendite (ROE)</td><td>21.0%</td></tr>
+    <tr><td>Kapitalrendite (ROIC)</td><td>14.6%</td></tr>
+    <tr><td>Current Ratio</td><td>0.94x</td></tr>
+    <tr><td>Quick Ratio</td><td>0.72x</td></tr>
+    <tr><td>Debt/Equity</td><td>0.60x</td></tr>
+    <tr><td>Eigenkapitalquote</td><td>42.7%</td></tr>
+    <tr><td>Zinsdeckung</td><td>8.26x</td></tr>
+    <tr><td>Asset Turnover</td><td>0.51x</td></tr>
+    <tr><td>KGV (Trailing P/E)</td><td>24.04x</td></tr>
     <tr><td>Kurs-Buchwert-Verhältnis</td><td>4.90x</td></tr>
-    <tr><td>Eigenkapitalrendite (ROE)</td><td>22.0%</td></tr>
-    <tr><td>Nettomarge</td><td>17.0%</td></tr>
-    <tr><td>Debt/Equity</td><td>0.64</td></tr>
-    <tr><td>Current Ratio</td><td>0.89</td></tr>
+    <tr><td>EV/EBITDA</td><td>10.55x</td></tr>
     <tr><td>Dividendenrendite</td><td>2.01%</td></tr>
+    <tr><td>Payout Ratio</td><td>46.9%</td></tr>
     <tr><td>Beta</td><td>0.21</td></tr>
   </table></div>
+  <p class="cap">Quelle: Yahoo-Finance-Jahresabschluss (letztes verfügbares Geschäftsjahr) über denselben Proxy wie das Bilanz-Terminal. ROIC nutzt eine pauschale Steuerrate von 21%.</p>
 </section>
 <section id="backtest">
   <h2>04 · Vier Anlagestrategien (5.0 Jahre, p10.000)</h2>
@@ -137,7 +158,7 @@ footer a{color:var(--muted);}
 </section>
 <section id="outlook">
   <h2>06 · Einordnung</h2>
-  <p>AstraZeneca plc lieferte in den letzten 5.0 Jahren eine annualisierte Rendite von +6.4%. Der Fundamental-Schnellcheck liegt mit 64.27/100 im mittleren Bereich. Im Backtest hätte eine Einmalanlage den Dip-Käufer-Ansatz übertroffen — typisch für ein Fenster mit überwiegendem Aufwärtstrend.</p>
+  <p>AstraZeneca plc lieferte in den letzten 5.0 Jahren eine annualisierte Rendite von +6.4%. Der Bilanz-Score liegt mit 68.86/100 im mittleren Bereich. Im Backtest hätte eine Einmalanlage den Dip-Käufer-Ansatz übertroffen — typisch für ein Fenster mit überwiegendem Aufwärtstrend.</p>
 </section>
 </div></div>
 <footer><p>Kursdaten und Kennzahlen live von Yahoo Finance, Backtest-Logik 1:1 aus dem produktiven GENITUS "Hätte ich gekauft"-Backtester übernommen (Peak/Drawdown auf Basis des split-bereinigten Kurses). Keine Anlageberatung. Teil des <a href="../index.html">GENITUS Global 100 Archivs</a>.</p></footer>
